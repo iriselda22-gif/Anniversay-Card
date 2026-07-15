@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Anniversary ❤️</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+    font-family: Arial, sans-serif;
+    overflow: hidden;
+}
+
+/* Envelope */
+.envelope-container {
+    text-align: center;
+    cursor: pointer;
+}
+
+.envelope {
+    width: 320px;
+    height: 220px;
+    background: #e91e63;
+    position: relative;
+    border-radius: 10px;
+    box-shadow: 0 15px 30px rgba(0,0,0,0.25);
+    overflow: hidden;
+    transition: transform 0.5s;
+}
+
+.envelope:hover {
+    transform: scale(1.05);
+}
+
+/* Envelope flap */
+.flap {
+    position: absolute;
+    width: 0;
+    height: 0;
+    border-left: 160px solid transparent;
+    border-right: 160px solid transparent;
+    border-top: 120px solid #c2185b;
+    top: 0;
+    left: 0;
+    transform-origin: top;
+    transition: transform 1s;
+    z-index: 3;
+}
+
+/* Letter */
+.letter {
+    position: absolute;
+    background: white;
+    width: 280px;
+    height: 190px;
+    left: 20px;
+    top: 25px;
+    border-radius: 8px;
+    padding: 20px;
+    text-align: center;
+    transition: top 1s;
+    z-index: 2;
+}
+
+.letter h1 {
+    color: #e91e63;
+    font-size: 22px;
+}
+
+.letter p {
+    margin-top: 12px;
+    color: #555;
+    font-size: 15px;
+}
+
+.heart {
+    font-size: 35px;
+}
+
+/* Closed text */
+.click-text {
+    margin-top: 25px;
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+/* Open animation */
+.open .flap {
+    transform: rotateX(180deg);
+}
+
+.open .letter {
+    top: -150px;
+}
+
+/* Full message */
+.message {
+    display: none;
+    background: white;
+    width: 90%;
+    max-width: 450px;
+    padding: 35px;
+    border-radius: 20px;
+    text-align: center;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.25);
+    animation: fadeIn 1s;
+}
+
+.message h1 {
+    color: #e91e63;
+}
+
+.message p {
+    margin: 15px 0;
+    font-size: 18px;
+    color: #555;
+    line-height: 1.5;
+}
+
+.big-heart {
+    font-size: 60px;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+</style>
+
+</head>
+
+<body>
+
+<!-- Envelope -->
+<div class="envelope-container" id="envelopeBox" onclick="openEnvelope()">
+
+    <div class="envelope">
+        <div class="flap"></div>
+
+        <div class="letter">
+            <div class="heart">❤️</div>
+            <h1>For You</h1>
+            <p>A special message is waiting...</p>
+        </div>
+    </div>
+
+    <div class="click-text">
+        Click the envelope 💌
+    </div>
+
+</div>
+
+
+<!-- Message -->
+<div class="message" id="message">
+
+    <div class="big-heart">❤️</div>
+
+    <h1>Happy Anniversary!</h1>
+
+    <p>
+        My love,
+    </p>
+
+    <p>
+        Thank you for all the happiness, laughter,
+        and memories you have brought into my life.
+    </p>
+
+    <p>
+        Every moment with you is special, and I can't
+        wait for all the moments still to come.
+    </p>
+
+    <p>
+        I love you more than words can explain. ❤️
+    </p>
+
+    <p>
+        Happy Anniversary, my love.
+    </p>
+
+</div>
+
+
+<script>
+function openEnvelope() {
+
+    document.getElementById("envelopeBox")
+        .classList.add("open");
+
+    setTimeout(function(){
+
+        document.getElementById("envelopeBox").style.display = "none";
+
+        document.getElementById("message").style.display = "block";
+
+    }, 1500);
+
+}
+</script>
+
+</body>
+</html>
